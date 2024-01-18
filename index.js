@@ -1,3 +1,27 @@
+const express=require('express');
+const app = express(); // bu şekilde uygulama baştalılır
+
+//routes bilgisi ile yapldı.
+app.use("/product/:id", function(req, res){
+    res.send("product details: " + req.params.id);
+});
+
+//aşağıdaki kullanım bir middleware dir.
+app.use("/products", function(req, res){
+    res.send("products");
+});
+
+app.use("/", function(req, res){
+    res.send("anasayfa");
+});
+
+
+app.listen(3000, () => {
+    console.log("listening on port 3000");
+});
+
+
+/*
 var http = require("http");
 var fs = require("fs");
 
@@ -23,3 +47,4 @@ var server = http.createServer(function(req, res){
 server.listen(3000, ()=>{
     console.log("Server is running on port 3000\n");
 });
+*/
