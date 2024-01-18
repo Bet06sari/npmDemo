@@ -1,50 +1,25 @@
 const express=require('express');
 const app = express(); // bu şekilde uygulama baştalılır
 
+//template engine
+app.set("views engine","ejs");
+
+
 //routes bilgisi ile yapldı.
 app.use("/product/:id", function(req, res){
-    res.send("product details: " + req.params.id);
+    res.render("product-details.ejs");
 });
 
 //aşağıdaki kullanım bir middleware dir.
 app.use("/products", function(req, res){
-    res.send("products");
+    res.render("products.ejs");
 });
 
 app.use("/", function(req, res){
-    res.send("anasayfa");
+    res.render("index.ejs");
 });
 
 
 app.listen(3000, () => {
     console.log("listening on port 3000");
 });
-
-
-/*
-var http = require("http");
-var fs = require("fs");
-
-var server = http.createServer(function(req, res){
-    if (req.url == "/"){
-        fs.readFile("index.html", function(err,html){
-            res.write(html);
-            res.end();
-        });
-    }else if (req.url== "/products"){
-        fs.readFile("product.html", function(err,html){
-            res.write(html);
-            res.end();
-        });
-    }else {
-        fs.readFile("404.html", function(err,html){
-            res.write(html);
-            res.end();
-        });
-    }
-});
-
-server.listen(3000, ()=>{
-    console.log("Server is running on port 3000\n");
-});
-*/
