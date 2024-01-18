@@ -6,6 +6,31 @@
     <title>Urunler Sayfasi</title>
 </head>
 <body>
-    <h1>Urunler Sayfasidir.</h1>
+    <h1>Urunler</h1>
+    <p>
+        <%= datas[0].name %>
+        <%= datas[0].price %>₺
+    </p>
+    <!-- ejs ile foreach döngüsü-->
+    <ul>
+        <% datas.forEach( data => { %>
+            <li>
+                <a href="/product/<%= data.id %>">
+                <%= data.name %> - <%= data.price %>₺
+            </li></a>
+        <% }) %>
+    </ul>
+
+    <!-- ejs ile if döngüsü-->
+    <ul>
+        <% datas.forEach( data => { %>
+            <% if ( data.price > 25000 ) { %>
+            <li>
+                <%= data.name %>
+                <%= data.price %>₺
+            </li>
+            <% } %>
+        <% }) %>
+    </ul>
 </body>
 </html>
