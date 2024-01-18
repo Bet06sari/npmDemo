@@ -7,7 +7,7 @@ var server = http.createServer(function(req, res){
             res.write(html);
             res.end();
         });
-    }else if (req.url== "/product"){
+    }else if (req.url== "/products"){
         fs.readFile("product.html", function(err,html){
             res.write(html);
             res.end();
