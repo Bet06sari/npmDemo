@@ -4,6 +4,7 @@ const app = express(); // bu şekilde uygulama baştalılır
 //template engine
 app.set("views engine","ejs");
 app.use(express.static('public'));
+app.use(express.static('node_modules'));
 
 const productData = [
     {id:1002, name:"iphone 14 pro", price:50000, imgUrl:"1002.webp" },
