@@ -3,11 +3,12 @@ const app = express(); // bu şekilde uygulama baştalılır
 
 //template engine
 app.set("views engine","ejs");
+app.use(express.static('public'));
 
 const productData = [
-    {id:1002, name:"iphone 14 pro", price:50000 },
-    {id:1003, name:"xioami redmi", price:10000 },
-    {id:1004, name:"samsung s16", price:25000 },
+    {id:1002, name:"iphone 14 pro", price:50000, imgUrl:"1002.webp" },
+    {id:1003, name:"xioami redmi 11s", price:10000, imgUrl:"1003.png" },
+    {id:1004, name:"samsung s16", price:25000 , imgUrl:"1004.jpg" },
 ];
 
 
