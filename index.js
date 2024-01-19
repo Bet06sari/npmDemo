@@ -13,7 +13,9 @@ const productData = [
 
 //routes bilgisi ile yapldı.
 app.use("/product/:id", function(req, res){
-    res.render("product-details.ejs");
+    const productId = parseInt(req.params.id);
+    const product = productData.find(p=> p.id === productId);
+    res.render("product-details.ejs", {product: product});
 });
 
 //aşağıdaki kullanım bir middleware dir.
