@@ -22,7 +22,10 @@ app.use("/product/:id", function(req, res){
 
 //aşağıdaki kullanım bir middleware dir.
 app.use("/products", function(req, res){
+    const productId = parseInt(req.params.id);
+    const product = productData.find(p=> p.id === productId);
     res.render("products.ejs", {
+        product: product,
         datas: productData
     });
 });
