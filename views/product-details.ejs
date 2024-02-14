@@ -7,6 +7,7 @@
     <title>Urunler Detay</title>
 </head>
 <body class="bg-warning">
+    <%- include("partials/nav") %>
     <h1><%= product.name %></h1>
     <img src="/images/<%= product.imgUrl %>" alt="" width="200px">
     <p>Price: <%= product.price %></p>
